@@ -852,3 +852,44 @@ input[type="date"].form-input {
 .footer-dev a:hover {
   opacity: 1;
 }
+/* ---- LİGHTBOX ---- */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-video {
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  font-size: 1.2rem;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.lightbox-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
