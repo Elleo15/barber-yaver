@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Mobil üçün viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yavər Sərdarlı | Barber</title>
+
+    <!-- Favicon - qayçı emoji SVG -->
+    <link rel="icon" href="yaver.png" type="image/png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS faylı -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========== ARXA FON VİDEOSU ========== -->
+    <!-- Bütün səhifədə arxa fonda dönür, səssiz, loop -->
+    <div class="bg-video-wrapper">
+      <video
+        class="bg-video"
+        src="https://res.cloudinary.com/daboan94r/video/upload/v1777292776/main_bg7jox.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+      <!-- Qaranlıq overlay - mətnin oxunması üçün -->
+      <div class="bg-overlay"></div>
+    </div>
+
+    <!-- ========== NAVİQASİYA ========== -->
+    <!-- Sticky nav - scroll edəndə yuxarıda qalır -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="#hero" class="nav-logo">
+          <img src="yaver.png" class="nav-avatar" alt="Yavər" />
+          YAVƏR
+        </a>
+        <!-- Naviqasiya linkləri - masaüstü -->
+        <ul class="nav-links" id="navLinks">
+          <!-- AZ mətnlər default, JS dil dəyişəndə yenilənir -->
+          <li>
+            <a href="#about" class="nav-link" data-section="about">Haqqımda</a>
+          </li>
+          <li>
+            <a href="#services" class="nav-link" data-section="services"
+              >Xidmətlər</a
+            >
+          </li>
+          <li>
+            <a href="#gallery" class="nav-link" data-section="gallery"
+              >Qalereya</a
+            >
+          </li>
+          <li>
+            <a href="#booking" class="nav-link" data-section="booking"
+              >Rezervasiya</a
+            >
+          </li>
+          <li>
+            <a
+              href="#products"
+              class="nav-link"
+              data-section="products"
+              data-az="Məhsullar"
+              data-ru="Продукты"
+              data-en="Products"
+              >Məhsullar</a
+            >
+          </li>
+        </ul>
+
+        <!-- Dil seçici -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="az">AZ</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <!-- Mobil hamburger düyməsi -->
+        <button class="hamburger" id="hamburger" aria-label="Menyu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ========== HERO BÖLMƏSİ ========== -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-text fade-in">
+          <!-- Çoxdilli mətnlər data-az, data-ru, data-en atributları ilə -->
+          <p
+            class="hero-subtitle"
+            data-az="Sumqayıt • Mərkəz Plaza"
+            data-ru="Сумгайыт • Меркез Плаза"
+            data-en="Sumgait • Merkez Plaza"
+          >
+            Sumqayıt • Mərkəz Plaza
+          </p>
+          <h1 class="hero-title">Yavər Sərdarlı</h1>
+          <p
+            class="hero-tagline"
+            data-az="İşləmirəm, Sevdiyim işi görürəm"
+            data-ru="Я не работаю — я занимаюсь любимым делом"
+            data-en="I don't work — I do what I love"
+          >
+            İşləmirəm, Sevdiyim işi görürəm
+          </p>
+          <a
+            href="#booking"
+            class="btn-primary"
+            data-az="Rezervasiya Et"
+            data-ru="Записаться"
+            data-en="Book Now"
+          >
+            Rezervasiya Et
+          </a>
+        </div>
+      </div>
+      <!-- Aşağıya scroll oxu -->
+      <div class="scroll-arrow">&#8595;</div>
+    </section>
+
+    <!-- ========== HAQQIMDA BÖLMƏSİ ========== -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2
+          class="section-title fade-in"
+          data-az="Haqqımda"
+          data-ru="Обо мне"
+          data-en="About Me"
+        >
+          Haqqımda
+        </h2>
+        <div class="about-content fade-in">
+          <div class="about-text">
+            <!-- Haqqımda mətnlər - 3 dildə -->
+            <p
+              class="about-quote"
+              data-az="İşləmirəm, Sevdiyim işi görürəm"
+              data-ru="Я не работаю — я занимаюсь любимым делом"
+              data-en="I don't work — I do what I love"
+            >
+              "İşləmirəm, Sevdiyim işi görürəm"
+            </p>
+            <p
+              class="about-desc"
+              data-az="Hər kəsin saçı onun üçün xüsusidir. Mən sadəcə kəsmir, hiss edirəm. Sumqayıt, Mərkəz Plaza — mənim yerim."
+              data-ru="Каждая стрижка уникальна. Я не просто стригу — я чувствую. Сумгайыт, Меркез Плаза — моё место."
+              data-en="Every haircut is unique. I don't just cut — I feel it. Sumgait, Merkez Plaza — my place."
+            >
+              Hər kəsin saçı onun üçün xüsusidir. Mən sadəcə kəsmir, hiss
+              edirəm. Sumqayıt, Mərkəz Plaza — mənim yerim.
+            </p>
+            <!-- Əlaqə məlumatları -->
+            <div class="about-info">
+              <div class="info-item">
+                <span
+                  class="info-label"
+                  data-az="Telefon"
+                  data-ru="Телефон"
+                  data-en="Phone"
+                  >Telefon</span
+                >
+                <a href="tel:+994559957549" class="info-value"
+                  >+994 55 995 75 49</a
+                >
+              </div>
+              <div class="info-item">
+                <span
+                  class="info-label"
+                  data-az="Instagram"
+                  data-ru="Instagram"
+                  data-en="Instagram"
+                  >Instagram</span
+                >
+                <a
+                  href="https://instagram.com/barber_yaver"
+                  target="_blank"
+                  class="info-value"
+                  >@barber_yaver</a
+                >
+              </div>
+              <div class="info-item">
+                <span
+                  class="info-label"
+                  data-az="Ünvan"
+                  data-ru="Адрес"
+                  data-en="Address"
+                  >Ünvan</span
+                >
+                <span
+                  class="info-value"
+                  data-az="Sumqayıt, Mərkəz Plaza"
+                  data-ru="Сумгайыт, Меркез Плаза"
+                  data-en="Sumgait, Merkez Plaza"
+                  >Sumqayıt, Mərkəz Plaza</span
+                >
+              </div>
+              <div class="info-item">
+                <span
+                  class="info-label"
+                  data-az="İş saatları"
+                  data-ru="Часы работы"
+                  data-en="Working Hours"
+                  >İş saatları</span
+                >
+                <div class="hours-grid" id="hoursGrid"></div>
+                <div class="status-badge" id="statusBadge"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== XİDMƏTLƏR BÖLMƏSİ ========== -->
+    <section class="section section-dark" id="services">
+      <div class="container">
+        <h2
+          class="section-title fade-in"
+          data-az="Xidmətlər"
+          data-ru="Услуги"
+          data-en="Services"
+        >
+          Xidmətlər
+        </h2>
+        <!-- Qiymətlər sonra dəyişdiriləcək -->
+        <div class="services-grid fade-in">
+          <div class="service-card">
+            <span
+              class="service-name"
+              data-az="Saç kəsimi"
+              data-ru="Стрижка"
+              data-en="Haircut"
+              >Saç kəsimi</span
+            >
+            <span class="service-price">— AZN</span>
+          </div>
+
+          <div class="service-card">
+            <span
+              class="service-name"
+              data-az="Fade kəsim"
+              data-ru="Фейд стрижка"
+              data-en="Fade Cut"
+              >Fade kəsim</span
+            >
+            <span class="service-price">— AZN</span>
+          </div>
+
+          <div class="service-card">
+            <span
+              class="service-name"
+              data-az="Saqqal"
+              data-ru="Борода"
+              data-en="Beard"
+              >Saqqal</span
+            >
+            <span class="service-price">— AZN</span>
+          </div>
+
+          <div class="service-card">
+            <span
+              class="service-name"
+              data-az="Saç + Saqqal"
+              data-ru="Стрижка + Борода"
+              data-en="Hair + Beard"
+              >Saç + Saqqal</span
+            >
+            <span class="service-price">— AZN</span>
+          </div>
+
+          <div class="service-card">
+            <span
+              class="service-name"
+              data-az="Uşaq saç kəsimi"
+              data-ru="Детская стрижка"
+              data-en="Kids Haircut"
+              >Uşaq saç kəsimi</span
+            >
+            <span class="service-price">— AZN</span>
+          </div>
+
+          <div class="service-card">
+            <span
+              class="service-name"
+              data-az="Qulaq mumu"
+              data-ru="Восковая эпиляция ушей"
+              data-en="Ear Wax"
+              >Qulaq mumu</span
+            >
+            <span class="service-price">— AZN</span>
+          </div>
+        </div>
+        <!-- Qiymət qeydi -->
+        <p
+          class="services-note fade-in"
+          data-az="* Qiymətlər tezliklə yenilənəcək"
+          data-ru="* Цены будут обновлены в ближайшее время"
+          data-en="* Prices will be updated soon"
+        >
+          * Qiymətlər tezliklə yenilənəcək
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== QALEREYa BÖLMƏSİ ========== -->
+    <!-- 4 sıra x 3 sütun = 12 video -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <h2
+          class="section-title fade-in"
+          data-az="İşlərim"
+          data-ru="Мои работы"
+          data-en="My Work"
+        >
+          İşlərim
+        </h2>
+        <div class="gallery-grid fade-in">
+          <!-- Video 1 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292778/video-1_ibafes.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292776/video-2_flow53.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292777/video-3_ielidh.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292777/video-4_zsoawj.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 5 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292778/video-5_jbbwzt.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 6 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292777/video-6_tbiaoi.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 7 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292777/video-7_tuvn1y.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 8 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292776/video-8_vs4u4o.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 9 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292776/video-9_i5kvmp.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 10 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292777/video-10_vdvudm.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 11 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292778/video-11_f1taho.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <!-- Video 12 -->
+          <div class="gallery-item">
+            <video
+              src="https://res.cloudinary.com/daboan94r/video/upload/v1777292778/video-12_qaixqx.mp4"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REZERVASİYA BÖLMƏSİ ========== -->
+    <section class="section section-dark" id="booking">
+      <div class="container">
+        <h2
+          class="section-title fade-in"
+          data-az="Rezervasiya"
+          data-ru="Запись"
+          data-en="Booking"
+        >
+          Rezervasiya
+        </h2>
+        <p
+          class="booking-subtitle fade-in"
+          data-az="Forma doldurun — WhatsApp üzərindən əlaqə saxlayacağıq"
+          data-ru="Заполните форму — свяжемся через WhatsApp"
+          data-en="Fill the form — we'll contact you via WhatsApp"
+        >
+          Forma doldurun — WhatsApp üzərindən əlaqə saxlayacağıq
+        </p>
+
+        <form class="booking-form fade-in" id="bookingForm">
+          <!-- Ad -->
+          <div class="form-group">
+            <label
+              class="form-label"
+              data-az="Adınız"
+              data-ru="Ваше имя"
+              data-en="Your Name"
+              >Adınız</label
+            >
+            <input
+              type="text"
+              id="clientName"
+              class="form-input"
+              required
+              data-placeholder-az="Adınızı daxil edin"
+              data-placeholder-ru="Введите ваше имя"
+              data-placeholder-en="Enter your name"
+              placeholder="Adınızı daxil edin"
+            />
+          </div>
+
+          <!-- Xidmət seçimi -->
+          <div class="form-group">
+            <label
+              class="form-label"
+              data-az="Xidmət"
+              data-ru="Услуга"
+              data-en="Service"
+              >Xidmət</label
+            >
+            <select id="serviceSelect" class="form-input" required>
+              <option
+                value=""
+                data-az="Xidmət seçin"
+                data-ru="Выберите услугу"
+                data-en="Select service"
+              >
+                Xidmət seçin
+              </option>
+              <option
+                value="Saç kəsimi"
+                data-az="Saç kəsimi"
+                data-ru="Стрижка"
+                data-en="Haircut"
+              >
+                Saç kəsimi
+              </option>
+              <option
+                value="Fade kəsim"
+                data-az="Fade kəsim"
+                data-ru="Фейд стрижка"
+                data-en="Fade Cut"
+              >
+                Fade kəsim
+              </option>
+              <option
+                value="Saqqal"
+                data-az="Saqqal"
+                data-ru="Борода"
+                data-en="Beard"
+              >
+                Saqqal
+              </option>
+              <option
+                value="Saç + Saqqal"
+                data-az="Saç + Saqqal"
+                data-ru="Стрижка + Борода"
+                data-en="Hair + Beard"
+              >
+                Saç + Saqqal
+              </option>
+              <option
+                value="Uşaq saç kəsimi"
+                data-az="Uşaq saç kəsimi"
+                data-ru="Детская стрижка"
+                data-en="Kids Haircut"
+              >
+                Uşaq saç kəsimi
+              </option>
+              <option
+                value="Qulaq mumu"
+                data-az="Qulaq mumu"
+                data-ru="Восковая эпиляция"
+                data-en="Ear Wax"
+              >
+                Qulaq mumu
+              </option>
+            </select>
+          </div>
+
+          <!-- Tarix -->
+          <div class="form-group">
+            <label
+              class="form-label"
+              data-az="Tarix"
+              data-ru="Дата"
+              data-en="Date"
+              >Tarix</label
+            >
+            <input type="date" id="bookingDate" class="form-input" required />
+          </div>
+
+          <!-- Saat -->
+          <div class="form-group">
+            <label
+              class="form-label"
+              data-az="Saat"
+              data-ru="Время"
+              data-en="Time"
+              >Saat</label
+            >
+            <select id="bookingTime" class="form-input" required>
+              <option value="">--:--</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+
+          <!-- Göndər düyməsi -->
+          <button
+            type="submit"
+            class="btn-primary btn-full"
+            data-az="WhatsApp ilə Göndər"
+            data-ru="Отправить в WhatsApp"
+            data-en="Send via WhatsApp"
+          >
+            WhatsApp ilə Göndər
+          </button>
+        </form>
+      </div>
+    </section>
+    <!-- ========== MƏHSULLAR BÖLMƏSİ ========== -->
+    <section class="section" id="products">
+      <div class="container">
+        <h2
+          class="section-title fade-in"
+          data-az="Məhsullar"
+          data-ru="Продукты"
+          data-en="Products"
+        >
+          Məhsullar
+        </h2>
+        <div class="coming-soon-wrap fade-in">
+          <p
+            class="coming-soon-text"
+            data-az="Tezliklə..."
+            data-ru="Скоро..."
+            data-en="Coming Soon..."
+          >
+            Tezliklə...
+          </p>
+          <p
+            class="coming-soon-sub"
+            data-az="Yavər Sərdarlı öz brendinin məhsulları yaxında burada olacaq"
+            data-ru="Продукты бренда Yavər Sərdarlı скоро появятся здесь"
+            data-en="Yavər Sərdarlı brand products will be available here soon"
+          >
+            Yavər Sərdarlı öz brendinin məhsulları yaxında burada olacaq
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-name">Yavər Sərdarlı</p>
+        <p class="footer-links">
+          <a href="https://instagram.com/barber_yaver" target="_blank"
+            >@barber_yaver</a
+          >
+        </p>
+        <p
+          class="footer-copy"
+          data-az="© 2025 Bütün hüquqlar qorunur"
+          data-ru="© 2025 Все права защищены"
+          data-en="© 2025 All rights reserved"
+        >
+          © 2025 Bütün hüquqlar qorunur
+        </p>
+        <p class="footer-dev">
+          Developed by
+          <a href="https://instagram.com/e1vin.eyvazov" target="_blank"
+            >Elvin Eyvazov</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- JS faylı - ən sonda yüklənir -->
+    <script src="script.js"></script>
+  </body>
+</html>
