@@ -635,8 +635,14 @@ input[type="date"].form-input {
   margin-bottom: 1rem;
 }
 
+.footer-links a {
+  transition: color var(--transition), transform var(--transition);
+  display: inline-block;
+}
+
 .footer-links a:hover {
   color: var(--accent);
+  transform: rotate(15deg) scale(1.2);
 }
 
 .footer-copy {
