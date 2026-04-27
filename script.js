@@ -153,7 +153,16 @@ function setupGalleryVideos() {
       obs.observe(video);
       return;
     }
-
+    // Lightbox - kliklədikdə açılır
+item.addEventListener("click", () => {
+  const src = video.src || video.dataset.src;
+  if (!src) return;
+  const lbVideo = document.getElementById("lightboxVideo");
+  const lb = document.getElementById("lightbox");
+  lbVideo.src = src;
+  lbVideo.play();
+  lb.classList.add("open");
+});
     item.addEventListener("mouseenter", () => {
       video.play().catch(() => { video.muted = true; video.play(); });
     });
@@ -164,7 +173,21 @@ function setupGalleryVideos() {
     });
   });
 }
+// Lightbox bağla
+document.getElementById("lightboxClose").addEventListener("click", () => {
+  const lb = document.getElementById("lightbox");
+  const lbVideo = document.getElementById("lightboxVideo");
+  lb.classList.remove("open");
+  lbVideo.pause();
+  lbVideo.src = "";
+});
 
+// Arxa fona klikləndə bağla
+document.getElementById("lightbox").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) {
+    document.getElementById("lightboxClose").click();
+  }
+});
 /* ============================================
    6. MOBİL HAMBURGER MENYUSU
    ============================================ */
