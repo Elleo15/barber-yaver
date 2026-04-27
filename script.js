@@ -173,21 +173,7 @@ item.addEventListener("click", () => {
     });
   });
 }
-// Lightbox bağla
-document.getElementById("lightboxClose").addEventListener("click", () => {
-  const lb = document.getElementById("lightbox");
-  const lbVideo = document.getElementById("lightboxVideo");
-  lb.classList.remove("open");
-  lbVideo.pause();
-  lbVideo.src = "";
-});
 
-// Arxa fona klikləndə bağla
-document.getElementById("lightbox").addEventListener("click", (e) => {
-  if (e.target === e.currentTarget) {
-    document.getElementById("lightboxClose").click();
-  }
-});
 /* ============================================
    6. MOBİL HAMBURGER MENYUSU
    ============================================ */
@@ -346,6 +332,7 @@ function setupWorkingHours() {
   }
 }
 
+
 /* ============================================
    BAŞLANĞIC - Bütün funksiyaları işə sal
    ============================================ */
@@ -359,5 +346,21 @@ document.addEventListener("DOMContentLoaded", () => {
   setupWorkingHours();
   handleNavScroll();
   handleActiveSection();
+
+   // Lightbox bağla
+document.getElementById("lightboxClose").addEventListener("click", () => {
+  const lb = document.getElementById("lightbox");
+  const lbVideo = document.getElementById("lightboxVideo");
+  lb.classList.remove("open");
+  lbVideo.pause();
+  lbVideo.src = "";
+});
+
+// Arxa fona klikləndə bağla
+document.getElementById("lightbox").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) {
+    document.getElementById("lightboxClose").click();
+  }
+});
   console.log("✂️ Yavər Sərdarlı — Barber Website Yükləndi");
 });
