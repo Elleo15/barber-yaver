@@ -260,65 +260,27 @@ function setupLangButtons() {
 }
 
 /* ============================================
-   BAŞLANĞIC - Bütün funksiyaları işə sal
+   10. İŞ SAATLARI
    ============================================ */
-document.addEventListener("DOMContentLoaded", () => {
-  setupLangButtons(); // Dil düymələri
-  setupFadeIn(); // Fade-in animasiyalar
-  setupGalleryVideos(); // Qalereya hover videoları
-  setupHamburger(); // Mobil hamburger menyu
-  setupBookingForm(); // Rezervasiya formu
-  setupScrollListeners(); // Scroll eventlər
-  setupWorkingHours();
+function setupWorkingHours() {
+  const days = {
+    az: ["Bazar ertəsi","Çərşənbə axşamı","Çərşənbə","Cümə axşamı","Cümə","Şənbə","Bazar"],
+    ru: ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"],
+    en: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+  };
 
-  // İlkin yükləmədə bir dəfə işlət
-  handleNavScroll();
-  handleActiveSection();
-  function setupWorkingHours() {
-    const days = {
-      az: [
-        "Bazar ertəsi",
-        "Çərşənbə axşamı",
-        "Çərşənbə",
-        "Cümə axşamı",
-        "Cümə",
-        "Şənbə",
-        "Bazar",
-      ],
-      ru: [
-        "Понедельник",
-        "Вторник",
-        "Среда",
-        "Четверг",
-        "Пятница",
-        "Суббота",
-        "Воскресенье",
-      ],
-      en: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-    };
+  const now = new Date();
+  const currentDay = (now.getDay() + 6) % 7;
+  const currentHour = now.getHours() + now.getMinutes() / 60;
+  const isOpen = currentHour >= 10 && currentHour < 19;
 
-    const now = new Date();
-    const currentDay = (now.getDay() + 6) % 7; // 0=B.E ... 6=Bazar
-    const currentHour = now.getHours() + now.getMinutes() / 60;
-    const isOpen = currentHour >= 10 && currentHour < 19;
+  const grid = document.getElementById("hoursGrid");
+  const badge = document.getElementById("statusBadge");
 
-    const grid = document.getElementById("hoursGrid");
-    const badge = document.getElementById("statusBadge");
-
-    // 7 günü render et
-    grid.innerHTML = days[currentLang]
-      .map((day, i) => {
-        const isOff = i === 1; // Çərşənbə axşamı = index 1
-        const isToday = i === currentDay;
-        return `
+  grid.innerHTML = days[currentLang].map((day, i) => {
+    const isOff = i === 1;
+    const isToday = i === currentDay;
+    return `
       <div class="hours-row ${isToday ? "today" : ""}">
         <span class="hours-day">${day}</span>
         <span class="hours-time ${isOff ? "closed" : "open"}">
@@ -326,36 +288,33 @@ document.addEventListener("DOMContentLoaded", () => {
         </span>
       </div>
     `;
-      })
-      .join("");
+  }).join("");
 
-    // Status badge
-    const isOffToday = currentDay === 1;
-    if (isOffToday) {
-      badge.className = "status-badge closed";
-      badge.textContent =
-        currentLang === "az"
-          ? "🔴 Bu gün istirahətdir"
-          : currentLang === "ru"
-            ? "🔴 Сегодня выходной"
-            : "🔴 Closed today";
-    } else if (isOpen) {
-      badge.className = "status-badge open";
-      badge.textContent =
-        currentLang === "az"
-          ? "🟢 İndi açıqdır"
-          : currentLang === "ru"
-            ? "🟢 Сейчас открыто"
-            : "🟢 Open now";
-    } else {
-      badge.className = "status-badge closed";
-      badge.textContent =
-        currentLang === "az"
-          ? "🔴 İndi bağlıdır"
-          : currentLang === "ru"
-            ? "🔴 Сейчас закрыто"
-            : "🔴 Closed now";
-    }
+  const isOffToday = currentDay === 1;
+  if (isOffToday) {
+    badge.className = "status-badge closed";
+    badge.textContent = currentLang === "az" ? "🔴 Bu gün istirahətdir" : currentLang === "ru" ? "🔴 Сегодня выходной" : "🔴 Closed today";
+  } else if (isOpen) {
+    badge.className = "status-badge open";
+    badge.textContent = currentLang === "az" ? "🟢 İndi açıqdır" : currentLang === "ru" ? "🟢 Сейчас открыто" : "🟢 Open now";
+  } else {
+    badge.className = "status-badge closed";
+    badge.textContent = currentLang === "az" ? "🔴 İndi bağlıdır" : currentLang === "ru" ? "🔴 Сейчас закрыто" : "🔴 Closed now";
   }
+}
+
+/* ============================================
+   BAŞLANĞIC - Bütün funksiyaları işə sal
+   ============================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  setupLangButtons();
+  setupFadeIn();
+  setupGalleryVideos();
+  setupHamburger();
+  setupBookingForm();
+  setupScrollListeners();
+  setupWorkingHours();
+  handleNavScroll();
+  handleActiveSection();
   console.log("✂️ Yavər Sərdarlı — Barber Website Yükləndi");
 });
