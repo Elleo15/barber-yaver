@@ -122,20 +122,40 @@ function setupGalleryVideos() {
   const isMobile = window.innerWidth <= 768;
   const galleryItems = document.querySelectorAll(".gallery-item");
 
+  // Lazy load — video görünəndə yüklənir
+  const lazyVideos = document.querySelectorAll('video[data-src]');
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        video.src = video.dataset.src;
+        video.load();
+        videoObserver.unobserve(video);
+      }
+    });
+  }, { rootMargin: '200px' });
+
+  lazyVideos.forEach(video => videoObserver.observe(video));
+
   galleryItems.forEach((item) => {
     const video = item.querySelector("video");
     if (!video) return;
 
     if (isMobile) {
-      video.play().catch(() => {});
+      // Mobil — görünəndə oynayır (lazy load sonra)
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting && video.src) {
+            video.play().catch(() => {});
+          }
+        });
+      });
+      obs.observe(video);
       return;
     }
 
     item.addEventListener("mouseenter", () => {
-      video.play().catch(() => {
-        video.muted = true;
-        video.play();
-      });
+      video.play().catch(() => { video.muted = true; video.play(); });
     });
 
     item.addEventListener("mouseleave", () => {
