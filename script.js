@@ -248,7 +248,7 @@ function setupBookingForm() {
     const dayOfWeek = selectedDate.getDay(); // 0=Bazar, 1=B.E, 2=Ç.A ...
 
     // 2 = Çərşənbə axşamı (istirahət günü)
-    if (dayOfWeek === 2) {
+    if (dayOfWeek === 4) {
       let msg = "";
       if (currentLang === "az")
         msg = "Çərşənbə axşamı istirahət günüdür. Başqa bir gün seçin.";
@@ -307,7 +307,7 @@ function setupWorkingHours() {
   const badge = document.getElementById("statusBadge");
 
   grid.innerHTML = days[currentLang].map((day, i) => {
-    const isOff = i === 1;
+    const isOff = i === 3;
     const isToday = i === currentDay;
     return `
       <div class="hours-row ${isToday ? "today" : ""}">
@@ -319,7 +319,7 @@ function setupWorkingHours() {
     `;
   }).join("");
 
-  const isOffToday = currentDay === 1;
+  const isOffToday = currentDay === 3;
   if (isOffToday) {
     badge.className = "status-badge closed";
     badge.textContent = currentLang === "az" ? "🔴 Bu gün istirahətdir" : currentLang === "ru" ? "🔴 Сегодня выходной" : "🔴 Closed today";
